@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cliente VIP</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;background:#061a5c;font-family:Poppins,system-ui,sans-serif}
+#S{position:absolute;width:1080px;height:1920px;transform-origin:0 0;overflow:hidden;
+background:linear-gradient(180deg,#0a35b8 0,#1c5df0 16%,#7fb0ff 28%,#e3efff 38%,#e9f3ff 100%)}
+.blob{position:absolute;width:700px;height:700px;border-radius:50%;filter:blur(60px);opacity:.55;animation:drift 12s ease-in-out infinite alternate}
+.b1{left:-250px;top:-200px;background:#2f86ff}.b2{right:-300px;top:120px;background:#5aa2ff;animation-delay:-5s}
+@keyframes drift{to{transform:translate(120px,90px) scale(1.15)}}
+.rb{position:absolute;top:56px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.35);display:grid;place-items:center;backdrop-filter:blur(8px);animation:pop .7s cubic-bezier(.3,1.5,.5,1) both}
+.rb svg{width:48px;height:48px}
+#ring{position:absolute;left:100px;top:195px;width:880px;height:230px;border-radius:999px;border:5px solid rgba(150,200,255,.7);box-shadow:0 0 50px rgba(80,150,255,.8),inset 0 0 60px rgba(40,100,255,.6);animation:ringIn 1.1s .1s both,glow 3s 1.2s ease-in-out infinite alternate}
+@keyframes ringIn{from{clip-path:inset(0 50% 0 50%);opacity:0}to{clip-path:inset(0 0 0 0);opacity:1}}
+@keyframes glow{to{box-shadow:0 0 80px rgba(120,190,255,1),inset 0 0 80px rgba(40,100,255,.8)}}
+#title{position:absolute;left:0;top:190px;width:1080px;display:flex;justify-content:center;align-items:baseline;gap:6px;font-weight:800;letter-spacing:-4px;line-height:1.1;animation:mask 1.2s .35s cubic-bezier(.2,.9,.2,1) both}
+@keyframes mask{from{clip-path:inset(0 100% 0 0);transform:translateY(30px)}to{clip-path:inset(-30% -10% -30% -10%);transform:none}}
+.t1{font-size:112px;color:#fff;text-shadow:0 5px 0 #b9d4ff,0 10px 0 #2a63d8,0 18px 28px rgba(0,20,100,.6)}
+.vw{position:relative}
+.t2{font-size:150px;background:linear-gradient(100deg,#f09a00 0,#ffd24a 28%,#fffbe0 44%,#ffcf3d 58%,#e08800 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 8px 0 #a35c00) drop-shadow(0 14px 18px rgba(0,20,100,.5));animation:gold 3.2s linear infinite}
+@keyframes gold{from{background-position:130% 0}to{background-position:-130% 0}}
+#crown{position:absolute;right:-8px;top:-78px;width:150px;transform:rotate(14deg);transform-origin:50% 100%;animation:crown 1s 1.1s cubic-bezier(.3,1.6,.5,1) both,sway 4s 2.1s ease-in-out infinite}
+@keyframes crown{from{transform:translateY(-120px) rotate(40deg);opacity:0}to{transform:rotate(14deg);opacity:1}}
+@keyframes sway{50%{transform:rotate(8deg) translateY(-6px)}}
+#banner{position:absolute;left:50px;top:373px;width:980px;height:172px;border-radius:62px;background:linear-gradient(180deg,rgba(15,70,200,.85),rgba(10,50,170,.9));border:3px solid rgba(110,190,255,.75);box-shadow:0 0 40px rgba(60,140,255,.6),inset 0 0 40px rgba(40,110,255,.5);display:flex;align-items:center;padding-left:36px;gap:34px;color:#fff;animation:rise .9s .9s cubic-bezier(.2,.9,.2,1) both}
+@keyframes rise{from{clip-path:inset(0 0 100% 0 round 62px);opacity:0;transform:translateY(-20px)}to{clip-path:inset(0 round 62px);opacity:1}}
+.heart{flex:none;width:126px;height:126px;border-radius:50%;background:rgba(60,130,255,.45);border:2px solid rgba(255,255,255,.3);display:grid;place-items:center}
+.heart svg{width:70px;animation:beat 1.4s 2s ease-in-out infinite}
+@keyframes beat{15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.15)}}
+#banner h1{font-size:40px;font-weight:800;line-height:1.2}
+#banner p{font-size:31px;font-weight:500;line-height:1.2;color:#cfe3ff;max-width:640px}
+.ch{display:inline-block;white-space:pre;opacity:0;animation:chIn .6s cubic-bezier(.2,.9,.2,1) forwards;animation-delay:calc(var(--d)*1s)}
+@keyframes chIn{from{opacity:0;transform:translateY(26px) rotate(7deg);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+#G{position:absolute;left:38px;top:570px;width:1004px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:388px 372px 342px;gap:14px}
+.card{position:relative;border-radius:46px;background:linear-gradient(180deg,#fff,#e8f2ff);box-shadow:0 14px 30px rgba(40,90,190,.22),inset 0 2px 0 #fff;overflow:hidden;cursor:pointer;transition:transform .15s;animation:reveal 1s cubic-bezier(.2,.9,.2,1) both;animation-delay:calc(1.2s + var(--i)*.1s)}
+.card:active{transform:scale(.95)}
+@keyframes reveal{from{clip-path:inset(100% 0 0 0 round 46px);transform:translateY(60px) scale(.94);opacity:0}to{clip-path:inset(0 round 46px);transform:none;opacity:1}}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,215,110,.5) 50%,transparent 60%);transform:translateX(-130%);animation:shine 6s infinite;animation-delay:calc(3s + var(--i)*.55s);pointer-events:none}
+@keyframes shine{22%,100%{transform:translateX(130%)}}
+.ico{position:absolute;left:0;right:0;top:0;height:64%;display:grid;place-items:center;padding:14px 18px 0;animation:float 4s ease-in-out infinite;animation-delay:calc(var(--i)*-.6s)}
+.ico svg{width:100%;height:100%;overflow:visible}
+@keyframes float{50%{transform:translateY(-10px) rotate(-1.5deg)}}
+.sp{position:absolute;width:var(--z);height:var(--z);background:radial-gradient(circle,#fff 0,#ffe27a 35%,#ffb400 100%);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:tw var(--t) ease-in-out infinite;animation-delay:var(--dl);pointer-events:none}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.2) rotate(0)}50%{opacity:1;transform:scale(1) rotate(90deg)}}
+.info{position:absolute;left:30px;bottom:26px;right:96px;color:#0a1f6b;font-weight:800;line-height:1}
+.info b{display:block;font-size:92px;letter-spacing:-3px}
+.info span{display:block;font-size:25px;line-height:1.05;color:#13296d}
+.info small{display:block;font-size:21px;font-weight:600}
+.info em{display:block;font-style:normal;font-size:54px;letter-spacing:-1px;margin-top:2px}
+.info.row{display:flex;align-items:flex-end;gap:14px}
+.info.row b{font-size:96px;line-height:.9}
+.go{position:absolute;right:20px;bottom:24px;width:78px;height:78px;border-radius:50%;background:linear-gradient(180deg,#b8d6ff,#8fbbff);display:grid;place-items:center;box-shadow:0 5px 12px rgba(40,100,220,.3)}
+.go svg{width:34px;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(5px)}}
+.stamp{display:none;position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) rotate(-14deg);padding:8px 22px;border:6px solid #14a05a;border-radius:16px;color:#14a05a;font-size:40px;font-weight:800;background:rgba(255,255,255,.8);z-index:2}
+.card.used .ico,.card.used .info{filter:grayscale(1);opacity:.35;animation:none}
+.card.used .go,.card.used .sp{display:none}
+.card.used::after{display:none}
+.card.used .stamp{display:block;animation:stamp .5s cubic-bezier(.3,1.8,.5,1) both}
+@keyframes stamp{from{transform:translate(-50%,-50%) rotate(-14deg) scale(2.4);opacity:0}}
+#nav{position:absolute;left:30px;top:1735px;width:1020px;height:150px;border-radius:70px;background:rgba(255,255,255,.88);box-shadow:0 10px 30px rgba(40,90,190,.2);display:flex;align-items:center;justify-content:space-around;padding:0 14px;animation:rise2 .9s 2.3s cubic-bezier(.2,.9,.2,1) both}
+@keyframes rise2{from{transform:translateY(200px);opacity:0}}
+.ni{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:28px;font-weight:600;color:#6f86ad;width:200px;cursor:pointer}
+.ni svg{width:56px;height:56px}
+.ni.on{background:linear-gradient(180deg,#2d86ff,#0d56e0);color:#fff;height:122px;width:300px;border-radius:50px;justify-content:center;box-shadow:0 8px 20px rgba(20,90,230,.5)}
+#ov{position:absolute;inset:0;background:rgba(5,20,80,.6);backdrop-filter:blur(8px);display:none;align-items:flex-end;z-index:20}
+#ov.on{display:flex;animation:fade .3s both}
+@keyframes fade{from{opacity:0}}
+#sheet{width:100%;background:linear-gradient(180deg,#fff,#e6f0ff);border-radius:70px 70px 0 0;padding:60px 70px 80px;text-align:center;position:relative;animation:up .6s cubic-bezier(.2,.9,.2,1) both;max-height:1500px;overflow:auto}
+@keyframes up{from{clip-path:inset(100% 0 0 0);transform:translateY(120px)}}
+.sico{width:380px;height:300px;margin:0 auto;position:relative;animation:float 4s ease-in-out infinite}.sico svg{width:100%;height:100%;overflow:visible}
+#sheet h2{font-size:60px;color:#0a1f6b;font-weight:800;margin:10px 0}
+#sheet p{font-size:32px;color:#3d548a;font-weight:500;line-height:1.35;margin-bottom:26px}
+.warn{background:#fff4d6;color:#8a5a00;border-radius:30px;padding:22px 30px;font-size:28px;font-weight:600;margin-bottom:34px}
+.code{font-size:84px;font-weight:800;letter-spacing:8px;color:#0d4fd6;background:#fff;border:5px dashed #7fb0ff;border-radius:36px;padding:24px;margin:10px 0 30px;animation:chIn .7s .2s both}
+.prize{font-size:44px!important;color:#e08800!important;font-weight:800!important}
+.btn{display:block;width:100%;border:0;border-radius:60px;padding:36px;font:800 38px Poppins,sans-serif;cursor:pointer;margin-top:18px}
+.btn.p{background:linear-gradient(180deg,#2d86ff,#0d56e0);color:#fff;box-shadow:0 10px 24px rgba(20,90,230,.45)}
+.btn.s{background:#e3ecfb;color:#2a4a8f}
+.hi{display:flex;justify-content:space-between;text-align:left;background:#fff;border-radius:30px;padding:24px 30px;margin-bottom:14px;font-size:28px;color:#0a1f6b;font-weight:600}
+.hi b{color:#0d4fd6}
+#toast{position:absolute;left:50%;bottom:260px;transform:translate(-50%,40px);background:#0a1f6b;color:#fff;padding:26px 48px;border-radius:60px;font-size:30px;font-weight:600;opacity:0;pointer-events:none;transition:.35s;z-index:30;white-space:nowrap}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.fly{position:absolute;width:34px;height:34px;background:radial-gradient(circle,#fff,#ffd24a 50%,#ff9d00);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:fly 1.3s cubic-bezier(.1,.8,.3,1) forwards;z-index:25;pointer-events:none}
+@keyframes fly{to{transform:translate(var(--dx),var(--dy)) rotate(360deg) scale(.2);opacity:0}}
+@keyframes pop{from{transform:scale(0);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#f5a800"/></linearGradient>
+<linearGradient id="cr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#e58f00"/></linearGradient>
+<radialGradient id="rp" cx=".35" cy=".3"><stop offset="0" stop-color="#b184ff"/><stop offset="1" stop-color="#4b1fa8"/></radialGradient>
+<radialGradient id="rr" cx=".35" cy=".3"><stop offset="0" stop-color="#ff7d6b"/><stop offset="1" stop-color="#c4161c"/></radialGradient>
+<radialGradient id="rb" cx=".35" cy=".3"><stop offset="0" stop-color="#5a9dff"/><stop offset="1" stop-color="#0c3fbf"/></radialGradient>
+<pattern id="bar" width="9" height="30" patternUnits="userSpaceOnUse"><rect width="4" height="30" fill="#1d4fbf"/></pattern>
+<symbol id="coin" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="url(#g)" stroke="#d98b00" stroke-width="2"/><circle cx="30" cy="30" r="21" fill="none" stroke="#e59a00" stroke-width="3"/><text x="30" y="41" text-anchor="middle" font-size="30" font-weight="800" fill="#c47a00" font-family="Poppins,sans-serif">$</text></symbol>
+<symbol id="pct" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="url(#g)" stroke="#d98b00" stroke-width="2"/><circle cx="30" cy="30" r="21" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/><text x="30" y="40" text-anchor="middle" font-size="30" font-weight="800" fill="#fff" font-family="Poppins,sans-serif">%</text></symbol>
+<symbol id="gift" viewBox="0 0 160 160"><rect x="32" y="72" width="96" height="76" rx="8" fill="#f3f7ff"/><rect x="104" y="72" width="24" height="76" rx="8" fill="#d6e3fa"/><rect x="24" y="56" width="112" height="28" rx="8" fill="#fff" stroke="#e2ebfb"/><rect x="70" y="56" width="20" height="92" fill="#1f6bff"/><g fill="#2f7bff" stroke="#1450c8" stroke-width="3"><ellipse cx="56" cy="42" rx="30" ry="15" transform="rotate(-25 56 42)"/><ellipse cx="104" cy="42" rx="30" ry="15" transform="rotate(25 104 42)"/></g><circle cx="80" cy="52" r="11" fill="#1f6bff" stroke="#1450c8" stroke-width="3"/></symbol>
+</defs></svg>
+
+<div id="S">
+<div class="blob b1"></div><div class="blob b2"></div>
+<div class="rb" style="left:46px;animation-delay:.2s"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></div>
+<div class="rb" style="right:158px;animation-delay:.3s"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a6 6 0 00-6 6v4l-2 3v1h16v-1l-2-3V8a6 6 0 00-6-6zm-2 17a2 2 0 004 0z"/></svg></div>
+<div class="rb" style="right:46px;background:#3d86ff;animation-delay:.4s"><svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="8" r="4.5"/><path d="M3.5 21a8.5 8.5 0 0117 0z"/></svg></div>
+<div id="ring"></div>
+<div id="title"><span class="t1">Cliente</span><span class="vw"><span class="t2">VIP</span>
+<svg id="crown" viewBox="0 0 120 90"><path d="M8 78L4 22l34 26L60 6l22 42 34-26-4 56z" fill="url(#cr)" stroke="#b87000" stroke-width="3" stroke-linejoin="round"/><rect x="8" y="72" width="104" height="14" rx="5" fill="url(#cr)" stroke="#b87000" stroke-width="3"/><circle cx="4" cy="20" r="7" fill="#ffe27a"/><circle cx="60" cy="6" r="8" fill="#ffe27a"/><circle cx="116" cy="20" r="7" fill="#ffe27a"/></svg></span></div>
+<div id="banner"><div class="heart"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 5.800-8 11-8 11z"/></svg></div><div><h1 id="h1">¡Gracias por ser un cliente fiel!</h1><p id="h2">Disfruta estos beneficios exclusivos pensados para ti.</p></div></div>
+<div id="G"></div>
+<div id="nav">
+<div class="ni" data-n="i"><svg viewBox="0 0 24 24" fill="#6f86ad"><path d="M12 3l9 8h-3v9h-5v-6h-2v6H6v-9H3z"/></svg>Inicio</div>
+<div class="ni on" data-n="v"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 18L2 7l5 4 5-8 5 8 5-4-1 11zm1 2h16v2H4z"/></svg>Cliente VIP</div>
+<div class="ni" data-n="h"><svg viewBox="0 0 24 24" fill="none" stroke="#6f86ad" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Historial</div>
+<div class="ni" data-n="m"><svg viewBox="0 0 24 24" stroke="#6f86ad" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Más</div>
+</div>
+<div id="ov"><div id="sheet"></div></div>
+<div id="toast"></div>
+</div>
+
+<script>
+/* ===== CONFIGURACIÓN ===== */
+var K='cliente-vip-usados-v1';
+var PREMIOS=['Bono de $5.000','Una recarga de $2.000','Un raspa gratis','Un giro gratis']; /* premios del Regalo sorpresa: edítalos aquí */
+var GIFT='<use href="#gift" x="45" y="5" width="175" height="195"/>';
+var B=[
+{id:'pm',big:'50%',lbl:'DE DESCUENTO',name:'PagaMás',desc:'50% de descuento con PagaMás.',svg:'<g transform="rotate(-12 110 100)"><rect x="25" y="60" width="180" height="76" rx="16" fill="#1246c9"/><text x="115" y="112" text-anchor="middle" font-size="40" font-weight="800" font-style="italic" fill="#fff" font-family="Poppins">Paga<tspan fill="#ffd23c">Más</tspan></text></g><use href="#pct" x="140" y="100" width="90" height="90"/>'},
+{id:'ba',big:'30%',lbl:'DE DESCUENTO',name:'Baloto',desc:'30% de descuento en Baloto.',svg:'<rect x="30" y="45" width="200" height="56" rx="28" fill="#e4242b"/><circle cx="62" cy="72" r="30" fill="#1a55d6" stroke="#fff" stroke-width="4"/><text x="62" y="86" text-anchor="middle" font-size="38" font-weight="800" fill="#fff" font-family="Poppins">6</text><text x="150" y="89" text-anchor="middle" font-size="40" font-weight="800" fill="#fff" font-family="Poppins">Baloto</text><circle cx="135" cy="145" r="30" fill="url(#rb)"/><text x="135" y="158" text-anchor="middle" font-size="36" font-weight="800" fill="#fff" font-family="Poppins">6</text><circle cx="192" cy="155" r="32" fill="url(#rr)"/><text x="192" y="168" text-anchor="middle" font-size="36" font-weight="800" fill="#fff" font-family="Poppins">3</text>'},
+{id:'g1',gift:1,big:'1',row:1,lbl:'REGALO<br>SORPRESA',name:'Regalo sorpresa',desc:'Abre tu regalo y descubre qué ganaste.',svg:GIFT},
+{id:'ra',big:'1',row:1,lbl:'RASPA<br>GRATIS',name:'Raspa gratis',desc:'1 Raspa & Gana gratis para ti.',svg:'<g transform="rotate(-8 130 100)"><rect x="40" y="30" width="180" height="120" rx="14" fill="#2467e8"/><text x="125" y="78" text-anchor="middle" font-size="36" font-weight="800" fill="#fff" font-family="Poppins">Raspa</text><text x="125" y="116" text-anchor="middle" font-size="36" font-weight="800" fill="#ffd23c" font-family="Poppins">&amp; Gana</text><rect x="150" y="104" width="60" height="38" rx="8" fill="#d3dcea"/></g><use href="#coin" x="35" y="120" width="70" height="70"/><use href="#coin" x="85" y="135" width="75" height="75"/>'},
+{id:'lo',big:'30%',lbl:'EN BILLETE<br>DE LOTERÍA',name:'Billete de lotería',desc:'30% de descuento en tu billete de lotería.',svg:'<g transform="rotate(10 130 100)"><rect x="60" y="10" width="130" height="165" rx="12" fill="#f4f8ff" stroke="#c4d6f5" stroke-width="3"/><text x="125" y="44" text-anchor="middle" font-size="22" font-weight="800" font-style="italic" fill="#1d4fbf" font-family="Poppins">LOTERÍA</text><rect x="80" y="62" width="90" height="12" rx="4" fill="#bcd0f2"/><rect x="80" y="86" width="90" height="12" rx="4" fill="#bcd0f2"/><rect x="80" y="110" width="60" height="12" rx="4" fill="#bcd0f2"/><rect x="75" y="140" width="100" height="26" fill="url(#bar)"/></g><use href="#pct" x="150" y="100" width="95" height="95"/>'},
+{id:'co',big:'1',row:1,lbl:'COMBO<small>MiLoto, ColorLoto y Baloto</small><em>50%</em>',name:'Combo de loterías',desc:'1 combo MiLoto, ColorLoto y Baloto con 50% de descuento.',svg:'<circle cx="150" cy="58" r="50" fill="url(#rp)"/><text x="150" y="68" text-anchor="middle" font-size="26" font-weight="800" fill="#fff" font-family="Poppins">MiLoto</text><circle cx="82" cy="128" r="60" fill="url(#rr)"/><text x="82" y="136" text-anchor="middle" font-size="24" font-weight="800" fill="#ffd23c" font-family="Poppins">ColorLoto</text><circle cx="178" cy="136" r="58" fill="url(#rb)"/><text x="178" y="146" text-anchor="middle" font-size="28" font-weight="800" fill="#fff" font-family="Poppins">Baloto</text>'},
+{id:'gi',big:'1',row:1,lbl:'GIRO<br>GRATIS',name:'Giro gratis',desc:'1 giro sin costo para ti.',svg:'<path d="M20 118L235 22 155 195 128 140z" fill="#2a74ff"/><path d="M128 140L235 22 95 108z" fill="#1450c8"/><use href="#coin" x="140" y="105" width="100" height="100"/>'},
+{id:'bp',big:'1',row:1,lbl:'RECARGA<br>BetPlay',name:'Recarga BetPlay',desc:'1 recarga BetPlay para ti.',svg:'<g transform="rotate(8 150 90)"><rect x="85" y="10" width="145" height="145" rx="30" fill="#0b2a73"/><path d="M130 40l30 18-30 18z" fill="#2bd37b"/><path d="M130 40l30 18-12 8z" fill="#ffd23c"/><text x="158" y="132" text-anchor="middle" font-size="30" font-weight="800" font-style="italic" fill="#fff" font-family="Poppins">BetPlay</text></g><use href="#coin" x="25" y="115" width="80" height="80"/>'},
+{id:'g2',gift:1,big:'1',row:1,lbl:'REGALO<br>SORPRESA',name:'Regalo sorpresa',desc:'Abre tu regalo y descubre qué ganaste.',svg:GIFT}
+];
+var $=function(s){return document.querySelector(s)};
+var used={};try{used=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+function save(){try{localStorage.setItem(K,JSON.stringify(used))}catch(e){}}
+function rnd(a,b){return a+Math.random()*(b-a)}
+
+/* escala 1080x1920 a cualquier pantalla */
+function fit(){var s=Math.min(innerWidth/1080,innerHeight/1920),S=$('#S');S.style.transform='scale('+s+')';S.style.left=(innerWidth-1080*s)/2+'px';S.style.top=(innerHeight-1920*s)/2+'px'}
+addEventListener('resize',fit);fit();
+
+/* texto animado letra por letra */
+function split(el,d0,step){var t=el.textContent,n=0;el.textContent='';for(var i=0;i<t.length;i++){var s=document.createElement('span');s.className='ch';s.textContent=t[i];s.style.setProperty('--d',(d0+n*step).toFixed(2));el.appendChild(s);n++}}
+split($('#h1'),1.4,.03);split($('#h2'),2.1,.018);
+
+/* destellos */
+function sparkles(box,n){for(var i=0;i<n;i++){var s=document.createElement('i');s.className='sp';var z=rnd(16,38);s.style.cssText='--z:'+z+'px;--t:'+rnd(1.8,3.4)+'s;--dl:'+rnd(0,3)+'s;left:'+rnd(4,88)+'%;top:'+rnd(2,85)+'%';box.appendChild(s)}}
+
+/* tarjetas */
+var CH='<svg viewBox="0 0 24 24" fill="none" stroke="#1456d8" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>';
+$('#G').innerHTML=B.map(function(b,i){return '<div class="card" data-id="'+b.id+'" role="button" tabindex="0" style="--i:'+i+'"><div class="ico"><svg viewBox="0 0 260 220">'+b.svg+'</svg></div><div class="info'+(b.row?' row':'')+'"><b>'+b.big+'</b><span>'+b.lbl+'</span></div><div class="go">'+CH+'</div><div class="stamp">CANJEADO</div></div>'}).join('');
+document.querySelectorAll('.card').forEach(function(c){sparkles(c.querySelector('.ico'),7);c.onclick=function(){open1(c.dataset.id)};c.onkeydown=function(e){if(e.key=='Enter'||e.key==' ')open1(c.dataset.id)}});
+sparkles($('#title'),0);
+(function(){var t=$('#ring');for(var i=0;i<10;i++){var s=document.createElement('i');s.className='sp';s.style.cssText='--z:'+rnd(22,44)+'px;--t:'+rnd(1.8,3)+'s;--dl:'+rnd(1.2,4)+'s;left:'+(60+i*95)+'px;top:'+rnd(150,330)+'px;position:absolute;z-index:5';$('#S').appendChild(s)}})();
+function render(){document.querySelectorAll('.card').forEach(function(c){c.classList.toggle('used',!!used[c.dataset.id])})}render();
+
+/* hoja inferior */
+function sheet(h){$('#sheet').innerHTML=h;$('#ov').classList.add('on');$('#sheet').style.animation='none';void $('#sheet').offsetWidth;$('#sheet').style.animation=''}
+function close1(){$('#ov').classList.remove('on')}
+$('#ov').onclick=function(e){if(e.target.id=='ov')close1()};
+function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(function(){e.classList.remove('on')},2200)}
+function ico(b){return '<div class="sico"><svg viewBox="0 0 260 220">'+b.svg+'</svg></div>'}
+function burst(){var r=$('#sheet').getBoundingClientRect(),S=$('#S').getBoundingClientRect(),k=1080/S.width;for(var i=0;i<32;i++){var s=document.createElement('i');s.className='fly';var a=Math.random()*6.28,d=rnd(250,560);s.style.cssText='left:540px;top:'+((r.top-S.top)*k+200)+'px;--dx:'+Math.cos(a)*d+'px;--dy:'+Math.sin(a)*d+'px';$('#S').appendChild(s);setTimeout(function(x){x.remove()},1400,s)}}
+function open1(id){
+ var b=B.filter(function(x){return x.id==id})[0];
+ if(used[id]){toast('Este beneficio ya fue usado');return}
+ sheet(ico(b)+'<h2>'+b.name+'</h2><p>'+b.desc+'</p><div class="warn">Beneficio de un solo uso. Una vez canjeado no podrás volver a usarlo.</div><button class="btn p" id="ok">Canjear ahora</button><button class="btn s" id="no">Ahora no</button>');
+ $('#no').onclick=close1;
+ $('#ok').onclick=function(){
+  var code='VIP-'+Math.random().toString(36).slice(2,8).toUpperCase(),prize=b.gift?PREMIOS[Math.floor(Math.random()*PREMIOS.length)]:'';
+  used[id]={code:code,t:Date.now(),prize:prize,name:b.name};save();render();
+  sheet(ico(b)+'<h2>¡Beneficio canjeado!</h2>'+(prize?'<p class="prize">'+prize+'</p>':'')+'<div class="code">'+code+'</div><p>Muéstrale este código al asesor. Este beneficio ya no se puede usar de nuevo.</p><button class="btn p" id="no">Listo</button>');
+  $('#no').onclick=close1;burst();
+ }}
+
+/* navegación */
+document.querySelectorAll('.ni').forEach(function(n){n.onclick=function(){
+ var k=n.dataset.n;
+ if(k=='h'){var l=Object.keys(used).map(function(i){return used[i]});
+  sheet('<h2>Historial</h2>'+(l.length?l.map(function(u){return '<div class="hi"><span>'+u.name+(u.prize?' · '+u.prize:'')+'</span><b>'+u.code+'</b></div>'}).join(''):'<p>Aún no has canjeado beneficios. Toca uno para empezar.</p>')+(l.length?'<button class="btn s" id="rs">Reiniciar beneficios</button>':'')+'<button class="btn p" id="no">Cerrar</button>');
+  $('#no').onclick=close1;
+  if($('#rs'))$('#rs').onclick=function(){used={};save();render();close1();toast('Beneficios reiniciados')}}
+ else if(k!='v')toast('Próximamente')}});
+</script>
+</body>
+</html>
